@@ -1,3 +1,18 @@
-<p>
-  signup works!
-</p>
+<div class="container-fluid login-background" id="login">
+  <div class="login-text">
+    <span class="login-position-style">Login</span>
+  </div>
+  <div class="login-div">
+    <input class=" login-inputbox " placeholder="USERNAME" type="text" name="username" [(ngModel)]="user.name" tabindex="7"/>
+    <input class=" login-inputbox " placeholder="EMAIL" type="text" name="username" [(ngModel)]="user.email" tabindex="7"/>
+    <input class=" login-inputbox " placeholder="PASSWORD" type="password" name="password" [(ngModel)]="user.password" tabindex="8" />
+    <button type="submit" class="login-button" (click)="signup()" tabindex="9">Signup</button>
+  </div>
+  <br/>
+  <div>
+    <span class="forgot-pwd" (click)="login()" tabindex="10">
+      <u>login</u>
+    </span>
+    <!-- <a href="" class="forgot-pwd">Forgot password?</a> -->
+  </div>
+</div>

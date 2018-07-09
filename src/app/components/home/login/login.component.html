@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+<div class="container-fluid login-background" id="login">
+  <div class="login-text">
+    <span class="login-position-style">Login</span>
+  </div>
+  <div class="login-div">
+    <input class=" login-inputbox " placeholder="USERNAME" type="text" name="username" [(ngModel)]="user.email" tabindex="7"/>
+    <input class=" login-inputbox " placeholder="PASSWORD" type="password" name="password" [(ngModel)]="user.password" tabindex="8" />
+    <button type="submit" class="login-button" (click)="login()" tabindex="9">LOGIN</button>
+  </div>
+  <br/>
+  <div>
+    <span class="forgot-pwd" (click)="signup()" tabindex="10">
+      <u>Sign up</u>
+    </span>
+    <!-- <a href="" class="forgot-pwd">Forgot password?</a> -->
+  </div>
+</div>
