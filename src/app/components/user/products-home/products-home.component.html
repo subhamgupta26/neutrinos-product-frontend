@@ -1,3 +1,16 @@
-<p>
-  products-home works!
-</p>
+
+
+  {{products | json}}
+
+  <div *ngFor="let product of products; let i = index" class="col-md-3 col-sm-6 col-12 info-div-wrapper ">
+      <div class=" row col-md-12 info-div1  m-0 label-div-style">
+        <div class="div-count-style">
+          <span class="label-count col-md-2 col-sm-2 col-2">{{product.name}} </span>
+        </div>
+        <div class="div-count-style">
+          <span class="label-name label-style col-md-10 col-sm-10 col-10">{{product.price}}</span>
+          <button type="submit" class="login-button" (click)="addToCart(product)" tabindex="9">Add</button>
+        </div>
+      </div>
+    </div>
+

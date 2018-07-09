@@ -10,6 +10,7 @@ import { CartComponent } from './components/user/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeService } from './services/home.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
      HttpClientModule
   ],
-  providers: [HomeService],
+  providers: [HomeService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

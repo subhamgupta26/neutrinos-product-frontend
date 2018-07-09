@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-products-home',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsHomeComponent implements OnInit {
 
-  constructor() { }
+  products;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getAllProducts();
+  }
+
+  getAllProducts() {
+    this.userService.getAllProducts().subscribe((response) => {
+      console.log(response);
+      this.products = response;
+    },
+    error => {
+      // toastr.error(error['error'].status.message);
+      console.log(error['error'].status.message);
+     });
+  }
+
+  addToCart(product) {
+    this.userService.addToCart('5b4115fa1a37db1760156515', product).subscribe((response) => {
+      console.log(response);
+    });
   }
 
 }

@@ -22,12 +22,16 @@ export class SignupComponent implements OnInit {
   signup() {
     this.homeService.signup(this.user).subscribe((response) => {
       console.log(response);
-      this.router.navigate(['login']);
+      this.router.navigate(['producthome']);
     },
          error => {
       // toastr.error(error['error'].status.message);
       console.log(error['error'].status.message);
      });
+  }
+
+  login() {
+    this.router.navigate(['login']);
   }
 
 
