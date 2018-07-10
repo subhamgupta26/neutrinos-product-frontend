@@ -1,4 +1,4 @@
-<div class="container-fluid login-background" id="login">
+<!-- <div class="container-fluid login-background" id="login">
   <div class="login-text">
     <span class="login-position-style">Login</span>
   </div>
@@ -13,6 +13,21 @@
     <span class="forgot-pwd" (click)="login()" tabindex="10">
       <u>login</u>
     </span>
-    <!-- <a href="" class="forgot-pwd">Forgot password?</a> -->
   </div>
-</div>
+</div> -->
+
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="USERNAME" name="username" type="text" [(ngModel)]="user.name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="EMAIL" name="email" type="text" [(ngModel)]="user.email">
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="PASSWORD" name="password" type="password" [(ngModel)]="user.password">
+    </mat-form-field>
+  </form>

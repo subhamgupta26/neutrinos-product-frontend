@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/home/login/login.component';
@@ -9,8 +9,18 @@ import { ProductsHomeComponent } from './components/user/products-home/products-
 import { CartComponent } from './components/user/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeService } from './services/home.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './services/user.service';
+import { AuthService } from './auth/auth.service';
+import { AuthInterceptor } from './auth/authInterceptor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule
+} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -24,9 +34,19 @@ import { UserService } from './services/user.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-     HttpClientModule
+     HttpClientModule,
+     BrowserAnimationsModule,
+     ReactiveFormsModule,
+     MatFormFieldModule,
+     MatInputModule
   ],
-  providers: [HomeService, UserService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    HomeService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

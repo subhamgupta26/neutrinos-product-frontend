@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 login() {
   this.homeService.login(this.user).subscribe((res) => {
     console.log(res);
-    this.router.navigate(['productHome']);
+    localStorage.setItem('token', res['token']);
+    this.router.navigate(['producthome']);
 
   },      error => {
    // toastr.error(error['error'].status.message);
