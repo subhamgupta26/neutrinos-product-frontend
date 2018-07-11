@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/home/login/login.component';
 import { SignupComponent } from './components/home/signup/signup.component';
 import { ProductsHomeComponent } from './components/user/products-home/products-home.component';
+import { CartComponent } from './components/user/cart/cart.component';
 
 
 const appRoutes: Routes = [
@@ -10,6 +11,7 @@ const appRoutes: Routes = [
   { path: 'login',  component: LoginComponent },
   { path: 'signup',  component: SignupComponent },
   { path: 'producthome',  component: ProductsHomeComponent },
+  { path: 'cart',  component: CartComponent },
   { path: '**', redirectTo: '/login' }
 ];
 

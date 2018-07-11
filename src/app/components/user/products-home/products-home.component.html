@@ -1,6 +1,6 @@
 
 
-  {{products | json}}
+  <!--
 
   <div *ngFor="let product of products; let i = index" class="col-md-3 col-sm-6 col-12 info-div-wrapper ">
       <div class=" row col-md-12 info-div1  m-0 label-div-style">
@@ -12,5 +12,19 @@
           <button type="submit" class="login-button" (click)="addToCart(product)" tabindex="9">Add</button>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    {{products | json}}
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let product of products; let i = index">
+
+          {{product.name}}
+          <button mat-button (click)="addToCart(product)">Add to cart</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <!-- <p>
+        Options selected: {{products.selectedOptions.selected.length}}
+      </p> -->
 

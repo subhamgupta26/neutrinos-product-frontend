@@ -24,4 +24,10 @@ export class UserService {
     return this.http.put(`${this.baseUrl}/users/${userId}/updateCart`, product, {headers: headers} );
   }
 
+  getUserCart(userId) {
+    const headers = new HttpHeaders();
+    this.createHeader(headers);
+    return this.http.get(`${this.baseUrl}/users/${userId}/cart`, {headers: headers} );
+  }
+
 }

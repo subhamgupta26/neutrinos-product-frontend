@@ -18,8 +18,12 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatRippleModule
+  MatRippleModule,
+  MatListModule,
+  MatToolbarModule,
+  MatGridListModule
 } from '@angular/material';
+import { HeaderComponent } from './components/common/header/header.component';
 
 
 @NgModule({
@@ -28,7 +32,8 @@ import {
     LoginComponent,
     SignupComponent,
     ProductsHomeComponent,
-    CartComponent
+    CartComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,10 @@ import {
      BrowserAnimationsModule,
      ReactiveFormsModule,
      MatFormFieldModule,
-     MatInputModule
+     MatInputModule,
+     MatListModule,
+     MatToolbarModule,
+     MatGridListModule
   ],
   providers: [
     {

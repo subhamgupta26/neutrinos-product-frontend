@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-home',
@@ -9,7 +10,7 @@ import { UserService } from '../../../services/user.service';
 export class ProductsHomeComponent implements OnInit {
 
   products;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, public router: Router) { }
 
   ngOnInit() {
     this.getAllProducts();
@@ -29,7 +30,12 @@ export class ProductsHomeComponent implements OnInit {
   addToCart(product) {
     this.userService.addToCart('5b4115fa1a37db1760156515', product).subscribe((response) => {
       console.log(response);
-    });
+      this.router.navigate(['cart']);
+    },
+    error => {
+      // toastr.error(error['error'].status.message);
+      console.log(error['error'].status.message);
+     });
   }
 
 }
