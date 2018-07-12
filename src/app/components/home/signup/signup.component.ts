@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
     name: '',
     password: ''
   };
+  rePassword ='';
 
   constructor(private homeService: HomeService, public router: Router, private toastr: ToastrService) { }
 
@@ -21,6 +22,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
+    if(this.validate()){
     this.homeService.signup(this.user).subscribe((response) => {
       console.log(response);
       this.toastr.success('Sign up Successful!!,Please Login');
@@ -30,11 +32,33 @@ export class SignupComponent implements OnInit {
       // toastr.error(error['error'].status.message);
       this.toastr.error(error['error'].message);
      });
+    }
   }
 
   login() {
     this.router.navigate(['login']);
   }
+
+  validate(){
+    if(this.user.name.trim()==='' || this.user.email.trim() === '' || this.user.password.trim() === '' ){
+ this.toastr.error('Mandatory fields cannot be empty');
+      return false;     
+    }
+        if(!this.validateEmail(this.user.email)){
+        this.toastr.error('Please enter a valid email address');
+        return false;
+    }
+    if(this.user.password != this.rePassword){
+      this.toastr.error('Password and Confirm password doesnot match');
+      return false;
+    }
+
+    return true;
+  }
+    validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
 
 }

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
 login() {
+  if(this.validate()){
   this.homeService.login(this.user).subscribe((res) => {
     console.log(res);
     localStorage.setItem('token', res['token']);
@@ -34,9 +35,28 @@ login() {
   }
 );
 }
+}
 
 signup() {
   this.router.navigate(['signup']);
+}
+
+
+  validate(){
+    if(this.user.email.trim() === '' || this.user.password.trim() === '' ){
+ this.toastr.error('Mandatory fields cannot be empty');
+      return false;     
+    }
+        if(!this.validateEmail(this.user.email)){
+        this.toastr.error('Please enter a valid email address');
+        return false;
+    }
+
+    return true;
+  }
+    validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
 
 }
