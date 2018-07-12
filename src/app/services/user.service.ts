@@ -30,4 +30,9 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/users/${userId}/cart`, {headers: headers} );
   }
 
+  getCurrentUser() {
+    const headers = new HttpHeaders();
+    this.createHeader(headers);
+    return this.http.get(`${this.baseUrl}/users/current`, {headers: headers} );
+  }
 }

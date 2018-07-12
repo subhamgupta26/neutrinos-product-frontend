@@ -21,9 +21,12 @@ import {
   MatRippleModule,
   MatListModule,
   MatToolbarModule,
-  MatGridListModule
+  MatGridListModule,
+  MatCardModule
 } from '@angular/material';
 import { HeaderComponent } from './components/common/header/header.component';
+import { RoleGuardService } from './auth/role-guard.service';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -33,7 +36,8 @@ import { HeaderComponent } from './components/common/header/header.component';
     SignupComponent,
     ProductsHomeComponent,
     CartComponent,
-    HeaderComponent
+    HeaderComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,10 @@ import { HeaderComponent } from './components/common/header/header.component';
      MatInputModule,
      MatListModule,
      MatToolbarModule,
-     MatGridListModule
+     MatGridListModule,
+     MatCardModule,
+     MatButtonModule,
+     ToastrModule.forRoot()
   ],
   providers: [
     {
@@ -54,7 +61,7 @@ import { HeaderComponent } from './components/common/header/header.component';
       useClass: AuthInterceptor,
       multi: true
     },
-    HomeService, UserService, AuthService],
+    HomeService, UserService, AuthService,RoleGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

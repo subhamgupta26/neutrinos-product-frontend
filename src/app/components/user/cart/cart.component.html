@@ -1,6 +1,17 @@
+<mat-toolbar >
+    Products in your Cart
+    <span class="example-fill-remaining-space"></span>
+    <button mat-button (click)="productHome()">Home</button>
+    <button mat-button (click)="logout()">Log out</button>
+  </mat-toolbar>
 <mat-list >
-    <mat-list-item *ngFor="let product of products; let i = index">
-      {{product.name}}
-      <!-- <button mat-button (click)="addToCart(product)">Add to cart</button> -->
-    </mat-list-item>
+    <mat-list-item *ngFor="let product of products">
+        <img mat-card-image src='{{product.imagePath}}' alt="Photo" width='40px' height='40px'>
+        <div mat-line>
+            {{ product.name }}
+          </div>
+          <p mat-line>
+           Price: {{ product.price }}
+          </p>
+        </mat-list-item>
   </mat-list>

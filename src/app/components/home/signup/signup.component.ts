@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from '../../../services/home.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
     password: ''
   };
 
-  constructor(private homeService: HomeService, public router: Router) { }
+  constructor(private homeService: HomeService, public router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -22,11 +23,12 @@ export class SignupComponent implements OnInit {
   signup() {
     this.homeService.signup(this.user).subscribe((response) => {
       console.log(response);
-      this.router.navigate(['producthome']);
+      this.toastr.success('Sign up Successful!!,Please Login');
+      this.router.navigate(['login']);
     },
          error => {
       // toastr.error(error['error'].status.message);
-      console.log(error['error'].status.message);
+      this.toastr.error(error['error'].message);
      });
   }
 
