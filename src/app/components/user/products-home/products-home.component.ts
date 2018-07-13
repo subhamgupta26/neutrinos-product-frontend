@@ -14,7 +14,11 @@ export class ProductsHomeComponent implements OnInit {
   baseUrl = 'http://localhost:3000';
   userId = '';
 
-  constructor(private userService: UserService, public router: Router, private toastr: ToastrService) {}
+  constructor(
+    private userService: UserService,
+    public router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.getAllProducts();
@@ -32,12 +36,10 @@ export class ProductsHomeComponent implements OnInit {
               myproduct['imagePath']
             }`;
             this.products.push(this.product);
-
           }
         }
       },
       error => {
-        // toastr.error(error['error'].status.message);
         this.toastr.error(error['error'].message);
         console.log(error['error'].status.message);
       }
@@ -50,21 +52,17 @@ export class ProductsHomeComponent implements OnInit {
         console.log(userResponse);
         this.userId = userResponse['_id'];
 
-        this.userService
-          .addToCart(this.userId, product)
-          .subscribe(
-            response => {
-              console.log(response);
-              this.toastr.success('Product added to cart');
-              this.router.navigate(['cart']);
-            },
-            error => {
-              // toastr.error(error['error'].status.message);
-              //console.log(error);
-              this.toastr.error(error['error'].message);
-              console.log(error['error'].status.message);
-            }
-          );
+        this.userService.addToCart(this.userId, product).subscribe(
+          response => {
+            console.log(response);
+            this.toastr.success('Product added to cart');
+            this.router.navigate(['cart']);
+          },
+          error => {
+            this.toastr.error(error['error'].message);
+            console.log(error['error'].status.message);
+          }
+        );
       },
       error => {
         this.toastr.error(error['error'].message);

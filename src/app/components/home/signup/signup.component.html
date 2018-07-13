@@ -1,46 +1,25 @@
-<!-- <div class="container-fluid login-background" id="login">
-  <div class="login-text">
-    <span class="login-position-style">Login</span>
-  </div>
-  <div class="login-div">
-    <input class=" login-inputbox " placeholder="USERNAME" type="text" name="username" [(ngModel)]="user.name" tabindex="7"/>
-    <input class=" login-inputbox " placeholder="EMAIL" type="text" name="username" [(ngModel)]="user.email" tabindex="7"/>
-    <input class=" login-inputbox " placeholder="PASSWORD" type="password" name="password" [(ngModel)]="user.password" tabindex="8" />
-    <button type="submit" class="login-button" (click)="signup()" tabindex="9">Signup</button>
-  </div>
-  <br/>
-  <div>
-    <span class="forgot-pwd" (click)="login()" tabindex="10">
-      <u>login</u>
-    </span>
-  </div>
-</div> -->
-
 <mat-toolbar class="toolbar-color">Sign up</mat-toolbar>
-<div class="example-form" >
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="USERNAME" name="username" type="text" class="fullwidth" [(ngModel)]="user.name">
-    </mat-form-field>
+<div class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="USERNAME" name="username" type="text" class="fullwidth" [(ngModel)]="user.name">
+  </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="EMAIL" name="email" type="text" [(ngModel)]="user.email">
-    </mat-form-field>
-
-
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="PASSWORD" name="password" type="password" [(ngModel)]="user.password">
-    </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-        <input matInput placeholder="CONFIRM PASSWORD" name="re-password" type="password" [(ngModel)]="rePassword">
-    </mat-form-field>
-
-  </div>
-  <div>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="EMAIL" name="email" type="text" [(ngModel)]="user.email">
+  </mat-form-field>
 
 
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="PASSWORD" name="password" type="password" [(ngModel)]="user.password">
+  </mat-form-field>
 
-      <button mat-button (click)="login()">Log in</button>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="CONFIRM PASSWORD" name="re-password" type="password" [(ngModel)]="rePassword">
+  </mat-form-field>
 
-      <button mat-raised-button (click)="signup()" color="primary">Sign up</button>
-  </div>
+</div>
+<div>
+  <button mat-button (click)="login()">Log in</button>
+
+  <button mat-raised-button (click)="signup()" color="primary">Sign up</button>
+</div>

@@ -61,7 +61,7 @@ import { ToastrModule } from 'ngx-toastr';
       useClass: AuthInterceptor,
       multi: true
     },
-    HomeService, UserService, AuthService,RoleGuardService],
+    HomeService, UserService, AuthService, RoleGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
