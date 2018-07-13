@@ -6,3 +6,7 @@
 .example-form > * {
   width: 100%;
 }
+
+.toolbar-color{
+  background-color:white;
+}

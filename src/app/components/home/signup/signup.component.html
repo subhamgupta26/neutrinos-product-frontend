@@ -16,8 +16,8 @@
   </div>
 </div> -->
 
-<mat-toolbar>Sign up</mat-toolbar>
-<div class="example-form">
+<mat-toolbar class="toolbar-color">Sign up</mat-toolbar>
+<div class="example-form" >
     <mat-form-field class="example-full-width">
       <input matInput placeholder="USERNAME" name="username" type="text" class="fullwidth" [(ngModel)]="user.name">
     </mat-form-field>
@@ -38,7 +38,9 @@
   </div>
   <div>
 
-      <button mat-raised-button (click)="signup()">Sign up</button>
 
-      <button mat-raised-button (click)="login()">Log in</button>
+
+      <button mat-button (click)="login()">Log in</button>
+
+      <button mat-raised-button (click)="signup()" color="primary">Sign up</button>
   </div>

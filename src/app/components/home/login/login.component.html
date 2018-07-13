@@ -15,7 +15,7 @@
     </div>
 </div> -->
 
-<mat-toolbar>Log In</mat-toolbar>
+<mat-toolbar class="toolbar-color">Log In</mat-toolbar>
 
 <div class="example-form">
     <mat-form-field class="example-full-width">
@@ -31,7 +31,9 @@
   </div>
 
   <div>
-      <button mat-raised-button (click)="login()">login</button>
 
-      <button mat-raised-button (click)="signup()">signup</button>
+
+      <button mat-button (click)="signup()">Sign Up</button>
+
+      <button mat-raised-button (click)="login()" color="primary">Login</button>
   </div>

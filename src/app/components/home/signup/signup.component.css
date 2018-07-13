@@ -1,8 +1,13 @@
 .example-form {
   display: flex;
   flex-direction: column;
+  /* background-image: url("/assets/images/download.jpg"); */
+  /* background-repeat: no-repeat; */
 }
 
 .example-form > * {
   width: 100%;
+}
+.toolbar-color{
+  background-color:white;
 }
